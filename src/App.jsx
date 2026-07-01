@@ -158,9 +158,53 @@
 
 
 import ProfileCard from "./components/ProfileCard";
+import TeamGrid from "./components/TeamGrid";
 import users from "./data/users";
 
 function App() {
+  const asmitaAge=22;
+  const objData={
+    name:"Asmita Magar",
+    age:22,
+    role:"Frontend Developer",
+    email:"asmita@example.com"
+    
+  }
+  const profiles = [
+  {
+    id: 1,
+    image: "https://i.pravatar.cc/150?img=1",
+    name: "Sarah Johnson",
+    role: "Product Designer",
+    email: "sarah.johnson@company.com",
+    status: "active",
+  },
+  {
+    id: 2,
+    image: "https://i.pravatar.cc/150?img=2",
+    name: "Michael Chen",
+    role: "Backend Engineer",
+    email: "michael.chen@company.com",
+    status: "inactive",
+  },
+  {
+    id: 3,
+    image: "https://i.pravatar.cc/150?img=3",
+    name: "Priya Patel",
+    role: "Marketing Lead",
+    email: "priya.patel@company.com",
+    status: "Active",
+  },
+  {
+    id: 4,
+    image: "https://i.pravatar.cc/150?img=4",
+    name: "James Okafor",
+    role: "DevOps Engineer",
+    email: "james.okafor@company.com",
+    status: "Inactive",
+  },
+];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-14 px-4">
       <div className="text-center mb-12">
@@ -174,16 +218,23 @@ function App() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {users.map((user) => (
-          <ProfileCard
-            key={user.id}
-            image={user.image}
-            name={user.name}
-            role={user.role}
-            email={user.email}
-            status={user.status}
-          />
-        ))}
+  <ProfileCard
+    key={user.id}
+    image={user.image}
+    // name={user.name}
+    role={user.role}
+    email={user.email}
+    status={user.status}
+    // age={user.name === "Asmita Magar" ? asmitaAge : undefined}
+    // objData={user.name === "Asmita Magar" ? objData : undefined}
+  />
+))}
       </div>
+      <TeamGrid 
+      profiles={profiles}
+
+      />
+
     </div>
   );
 }
